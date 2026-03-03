@@ -18,3 +18,12 @@ class UsuarioForm(forms.ModelForm):
         if edad < 18:
             raise forms.ValidationError("Edad debe ser mayor a 18 años")
         return edad
+    
+    #validación de admin en texto de input nombre
+
+    def clean_nombre(self):
+        nombre = self.cleaned_data.get('nombre')
+
+        if nombre.lower() == 'admin':
+            raise forms.ValidationError("No se permite el nombre 'admin'.")      
+        return nombre

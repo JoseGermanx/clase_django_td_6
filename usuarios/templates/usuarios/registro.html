@@ -10,18 +10,26 @@
 </head>
 <body>
     <div class="container">
-    <h1>Registro Usuarios</h1>
+    <h1 class="mt-4">Registro Usuarios</h1>
 
-    <form method="post" style="width: 500px;">
+      {% if messages %}
+           {% for message in messages %}
+           <div class="alert">
+            {{message}}
+           </div>
+           {% endfor %}
+        {% endif %}
+
+    <form method="post" style="width: 500px;" class="mt-4">
         {% csrf_token %}
 
         {{form.as_p }}
 
-        {% if form.errors %}
+        <!-- {% if form.errors %}
         <div style="color: red;">
             {{form.errors}}
         </div>
-        {% endif %}
+        {% endif %} -->
 
         <button type="submit" class="btn btn-info">Registrarse</button>
     </form>
