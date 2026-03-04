@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: green;">{{message}}</p>
+    {% endfor%}
+    {% endif %}
     <h1>Bienvenidos</h1>
     <a href="{% url 'login' %}">Iniciar sesión</a>
 </body>

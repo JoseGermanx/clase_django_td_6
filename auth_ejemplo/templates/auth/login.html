@@ -6,7 +6,11 @@
     <title>Iniciar sesión</title>
 </head>
 <body>
-
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: green;">{{message}}</p>
+    {% endfor%}
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
